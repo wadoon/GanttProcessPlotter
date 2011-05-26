@@ -102,6 +102,7 @@ public class MainFrame extends JFrame implements ActionListener, ChangeListener 
     }
 
     public void init() {
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	spinnerTime.setValue(1000);
 	spinnerQuantum.setValue(10);
 	setLayout(new BorderLayout());
@@ -125,8 +126,8 @@ public class MainFrame extends JFrame implements ActionListener, ChangeListener 
 	p.add(new JSeparator(), new CC().spanX(3));
 	p.add(btnAdd = new JButton("Add"), new CC().split(2));
 	p.add(btnRemove = new JButton("Remove"), "wrap");
-	p.add(btnOpen);
-	p.add(btnSave);
+//	p.add(btnOpen);
+//	p.add(btnSave);
 	spinnerQuantum.addChangeListener(this);
 	btnUpdate.addActionListener(this);
 
