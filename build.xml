@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project GanttProcessPlotter">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/home/weigla/proj/GanttProcessPlotter/ganttprocess.jar" filesetmanifest="mergewithoutmain"
+        		compress="true">
+            <manifest>
+                <attribute name="Main-Class" value="weigla.sched.gui.MainFrame"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="/home/weigla/proj/GanttProcessPlotter/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/weigla/usr/lib/java/miglayout/miglayout-3.7.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/home/weigla/usr/lib/java/google-collect-1.0/google-collect-1.0.jar"/>
+        </jar>
+    </target>
+</project>
