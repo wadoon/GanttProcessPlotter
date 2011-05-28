@@ -34,7 +34,10 @@ import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
+import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
@@ -51,8 +54,9 @@ import weigla.sched.model.SchedulerObserver;
 
 /**
  * Central frame of the gui.
+ * 
  * @author weigla
- *
+ * 
  */
 public class MainFrame extends JFrame implements ActionListener, ChangeListener {
     private static final long serialVersionUID = 8136951197387929515L;
@@ -126,8 +130,8 @@ public class MainFrame extends JFrame implements ActionListener, ChangeListener 
 	p.add(new JSeparator(), new CC().spanX(3));
 	p.add(btnAdd = new JButton("Add"), new CC().split(2));
 	p.add(btnRemove = new JButton("Remove"), "wrap");
-//	p.add(btnOpen);
-//	p.add(btnSave);
+	// p.add(btnOpen);
+	// p.add(btnSave);
 	spinnerQuantum.addChangeListener(this);
 	btnUpdate.addActionListener(this);
 
@@ -169,12 +173,12 @@ public class MainFrame extends JFrame implements ActionListener, ChangeListener 
 	p.add(c2, "wrap");
     }
 
-//    private void addInto(JPanel p, String string, JComponent comp) {
-//	JLabel l = new JLabel(string);
-//	p.add(l);
-//	l.setLabelFor(comp);
-//	p.add(comp, "wrap");
-//    }
+    // private void addInto(JPanel p, String string, JComponent comp) {
+    // JLabel l = new JLabel(string);
+    // p.add(l);
+    // l.setLabelFor(comp);
+    // p.add(comp, "wrap");
+    // }
 
     public MainFrameState saveState() {
 	MainFrameState state = new MainFrameState();
@@ -375,6 +379,23 @@ public class MainFrame extends JFrame implements ActionListener, ChangeListener 
     }
 
     public static void main(String[] args) {
+	try {
+	    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	    UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+	} catch (ClassNotFoundException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (InstantiationException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (IllegalAccessException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (UnsupportedLookAndFeelException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
 	SwingUtilities.invokeLater(new Runnable() {
 	    @Override
 	    public void run() {
